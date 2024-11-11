@@ -55,6 +55,9 @@ export const Blog = sequelize.define('Blog', {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW
   }
+}, {
+  tableName: 'Blog',
+  timestamps: false
 });
 
 export default Blog;

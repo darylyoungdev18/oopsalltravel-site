@@ -7,3 +7,6 @@
 
 # Ignore IDE and system files
 /.vscode
+
+# Ignore logs
+backend\config\database.js
