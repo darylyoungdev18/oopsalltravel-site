@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="blog-input-container">
+    <h1>Create Your Blog</h1>
+    <form id="blogForm" action="/blogs" method="POST" enctype="multipart/form-data">
+      <label for="Blog_Title">Blog Title:</label>
+      <input type="text" id="Blog_Title" name="Blog_Title" required>
+
+      <label for="Blog_Details">Blog Details:</label>
+      <textarea id="Blog_Details" name="Blog_Details" rows="4" required></textarea>
+
+      <label for="Blog_City">City:</label>
+      <input type="text" id="Blog_City" name="Blog_City" required>
+
+      <label for="Blog_Country">Country:</label>
+      <input type="text" id="Blog_Country" name="Blog_Country" required>
+
+      <label for="Is_Video_Blog">Is this a video blog?</label>
+      <input type="checkbox" id="Is_Video_Blog" name="Is_Video_Blog" onclick="toggleVideoInput()">
+
+      <div id="videoInput" style="display: none;">
+        <label for="videoFile">Upload Video File:</label>
+        <input type="file" id="videoFile" name="videoFile" accept="video/*">
+      </div>
+
+      <label for="blogImage">Upload Blog Image:</label>
+      <input type="file" id="blogImage" name="blogImage" accept="image/*" required>
+
+      <button type="submit">Create Blog</button>
+    </form>
+  </div>
+
+  <script>
+    function toggleVideoInput() {
+      const videoInputDiv = document.getElementById('videoInput');
+      const isVideoBlogCheckbox = document.getElementById('Is_Video_Blog');
+      if (isVideoBlogCheckbox.checked) {
+        videoInputDiv.style.display = 'block';
+      } else {
+        videoInputDiv.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
