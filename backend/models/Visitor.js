@@ -8,6 +8,12 @@ export const Visitor = sequelize.define('Visitor', {
     primaryKey: true,
     allowNull: false
   },
+  Visitor_UUID: {
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
+    allowNull: false,
+    unique: true
+  },
   IP_Address: {
     type: DataTypes.STRING(39),
     allowNull: false

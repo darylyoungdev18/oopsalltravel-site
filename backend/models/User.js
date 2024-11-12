@@ -10,7 +10,7 @@ export const User = sequelize.define('User_Account', {
     allowNull: false
   },
   User_Account_Name: {
-    type: DataTypes.STRING(50),
+    type: DataTypes.STRING(100),
     allowNull: false
   },
   User_Account_Email: {

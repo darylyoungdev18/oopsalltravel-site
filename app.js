@@ -2,6 +2,11 @@ import express from 'express';
 import { sequelize } from './backend/config/database.js';
 import authRoutes from './backend/routes/authRoutes.js';
 import blogRoutes from './backend/routes/blogRoutes.js';
+import userRoutes from './backend/routes/userRoutes.js';
+import visitorRoutes from './backend/routes/visitorRoutes.js';
+import blogLikeRoutes from './backend/routes/blogLikeRoutes.js';
+import blogViewRoutes from './backend/routes/blogViewRoutes.js';
+import { trackVisitor } from './backend/middleware/visitorTracker.js';
 import multer from 'multer';
 import path from 'path';
 import {fileURLToPath} from 'url';
@@ -15,6 +20,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(trackVisitor);
 
 //multer setup for file upload
 const storage = multer.diskStorage({
@@ -29,6 +35,10 @@ const storage = multer.diskStorage({
 // API Routes
 app.use('/auth', authRoutes);
 app.use('/blogs', blogRoutes);
+app.use('/blog-likes', blogLikeRoutes);
+app.use('/blog-views', blogViewRoutes);
+app.use('/visitors', visitorRoutes);
+app.use('/users', userRoutes);
 
 // Sync Database and Start Server
 sequelize.sync().then(() => {

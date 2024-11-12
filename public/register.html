@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Register </title>
+        <link rel="icon" type="image/svg" href="images\dytravels_logoedit.svg" sizes="16x16">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js" integrity="sha512-kfs3Dt9u9YcOiIt4rNcPUzdyNNO9sVGQPiZsub7ywg6lRW5KuK1m145ImrFHe3LMWXHndoKo2YRXWy8rnOcSKg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+<body>
+    <div class="full-header">
+        <div class="headers">
+            <header class="desktop-header" aria-label="Desktop Header">
+                <div class="logo">
+                    <a href ="/"><img src="images\dytravels_logoedit.svg"></a>
+                    </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li class="nav-item">
+                            <a href="/Blogs.html" class="nav-header">
+                                Blogs
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/places.html" class="nav-header">
+                                Places
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+    </div>
+    <div class="feature-container">
+        <div class="hero-container">
+            <div class="feature-image">
+                <img class="header-image" src="images\homepage_header.jpg">
+            </div>
+            <div class="feature-content">
+                <h1 class="Title">
+                    Welcome To DUY Travel
+                </h1>
+                <div class="subtitle-area">
+                    The World is small, </br> taking it all in makes it bigger
+                </div>
+                <div class="cta-area">
+                    <a class="cta-btn" href="/blogs.html">
+                        Read Blogs
+                    </a>
+                    <a class="cta-btn" href="/places.html">
+                        Search Places
+                    </a>
+                </div>
+            </div>
+        </div>
+  <h1>Register</h1>
+  <form id="registerForm" action="/users/register" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    
+    <button type="submit">Register</button>
+  </form>
+</body>
+</html>

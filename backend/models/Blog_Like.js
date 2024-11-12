@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../config/database.js';
-import { User_Account } from './User_Account.js';
+import { User } from './User.js';
 import { Blog } from './Blog.js';
 
 export const Blog_Like = sequelize.define('Blog_Like', {
@@ -14,7 +14,7 @@ export const Blog_Like = sequelize.define('Blog_Like', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: User_Account,
+            model: User,
             key: 'User_Account_ID'
         }
     },
@@ -27,9 +27,9 @@ export const Blog_Like = sequelize.define('Blog_Like', {
         }
     },
     Liked_At: {
-        type: DataTypes.TIMESTAMP,
+        type: DataTypes.DATE,
         defaultValue: DataTypes.NOW
-    }
+      }
 }, {
     tableName: 'Blog_Like',
     timestamps: false

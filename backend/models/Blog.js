@@ -14,7 +14,7 @@ export const Blog = sequelize.define('Blog', {
     allowNull: false,
     references: {
       model: User,
-      key: 'id'
+      key: 'User_Account_ID'
     }
   },
   Is_Featued_Blog: {
@@ -60,4 +60,6 @@ export const Blog = sequelize.define('Blog', {
   timestamps: false
 });
 
+
+Blog.belongsTo(User, { foreignKey: 'User_Account_ID' });
 export default Blog;
