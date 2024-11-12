@@ -1,4 +1,5 @@
 import express from 'express';
+import cookieParser from 'cookie-parser';
 import { sequelize } from './backend/config/database.js';
 import authRoutes from './backend/routes/authRoutes.js';
 import blogRoutes from './backend/routes/blogRoutes.js';
@@ -17,10 +18,16 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 // Middleware for parsing request bodies
+app.set('trust proxy', true);
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// this really needs to be placed before any routes and the trackvistor middleware
+app.use(cookieParser());
+//needs to be placed after cookieparser
 app.use(trackVisitor);
+
 
 //multer setup for file upload
 const storage = multer.diskStorage({

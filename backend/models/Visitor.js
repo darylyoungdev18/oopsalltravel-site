@@ -6,25 +6,34 @@ export const Visitor = sequelize.define('Visitor', {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
-    allowNull: false
+    allowNull: false,
+    field: 'Visitor_ID'
   },
   Visitor_UUID: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
     allowNull: false,
-    unique: true
+    unique: true,
+    field: 'Visitor_UUID'
   },
   IP_Address: {
     type: DataTypes.STRING(39),
-    allowNull: false
+    allowNull: true,
+    field: 'IP_Address'
   },
   Is_Returning_Visitor: {
     type: DataTypes.BOOLEAN,
-    defaultValue: false
+    defaultValue: false,
+    field: 'Is_Returning_Visitor'
+  },
+  Time_Visited: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW,
+    field: 'Time_Visited'
   }
 }, {
   tableName: 'Visitor',
-  timestamps: true
+  timestamps: false
 });
 
 export default Visitor;
